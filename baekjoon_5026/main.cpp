@@ -1,27 +1,15 @@
-#include <iostream>
-#include <string.h>
-#include <cmath>
-using namespace std;
+#include <cstdio>
 
-int t, n[2], turn, n1;
-char i1[9];
+int a, b, t;
+char n[10];
 int main() {
-	cin >> t;
+	scanf_s("%d", &t);
 	while (t--) {
-		cin >> i1;
-		if (i1[0] == 'P') cout << "skipped" << endl;
+		scanf_s("%s", n, 10);
+		if (n[0] == 'P') printf("skipped\n");
 		else {
-			turn = 0; n1 = 0;
-			for (int i = 0; i < strlen(i1); i++) {
-				if (i1[i]=='+') turn++;
-				else n[turn]++;
-			}
-			turn = 0;
-			for (int i = 0; i < strlen(i1); i++) {
-				if (i1[i] == '+') turn++;
-				else n1 += (i1[i] - '0')*pow(10, --n[turn]);
-			}
-			cout << n1 << endl;
+			sscanf_s(n, "%d+%d", &a, &b);
+			printf("%d\n", a + b);
 		}
 	}
 	return 0;
